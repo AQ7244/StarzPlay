@@ -17,6 +17,19 @@
 		C2009C0E2BD27F2D0085A3C0 /* StarzPlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C0D2BD27F2D0085A3C0 /* StarzPlayTests.swift */; };
 		C2009C182BD27F2D0085A3C0 /* StarzPlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C172BD27F2D0085A3C0 /* StarzPlayUITests.swift */; };
 		C2009C1A2BD27F2D0085A3C0 /* StarzPlayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C192BD27F2D0085A3C0 /* StarzPlayUITestsLaunchTests.swift */; };
+		C2009C332BD289BA0085A3C0 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C322BD289BA0085A3C0 /* BuildConfiguration.swift */; };
+		C2009C402BD4E64E0085A3C0 /* ShowBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C382BD4E64E0085A3C0 /* ShowBase.swift */; };
+		C2009C412BD4E64E0085A3C0 /* Seasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C392BD4E64E0085A3C0 /* Seasons.swift */; };
+		C2009C422BD4E64E0085A3C0 /* NextEpisodeToAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3A2BD4E64E0085A3C0 /* NextEpisodeToAir.swift */; };
+		C2009C432BD4E64E0085A3C0 /* ProductionCompanies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3B2BD4E64E0085A3C0 /* ProductionCompanies.swift */; };
+		C2009C442BD4E64E0085A3C0 /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3C2BD4E64E0085A3C0 /* Networks.swift */; };
+		C2009C452BD4E64E0085A3C0 /* CreatedBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3D2BD4E64E0085A3C0 /* CreatedBy.swift */; };
+		C2009C462BD4E64E0085A3C0 /* LastEpisodeToAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3E2BD4E64E0085A3C0 /* LastEpisodeToAir.swift */; };
+		C2009C472BD4E64E0085A3C0 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C3F2BD4E64E0085A3C0 /* Genres.swift */; };
+		C2009C4C2BD4E6660085A3C0 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C482BD4E6660085A3C0 /* Crew.swift */; };
+		C2009C4D2BD4E6660085A3C0 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C492BD4E6660085A3C0 /* SeasonModel.swift */; };
+		C2009C4E2BD4E6660085A3C0 /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C4A2BD4E6660085A3C0 /* Episodes.swift */; };
+		C2009C4F2BD4E6660085A3C0 /* GuestStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2009C4B2BD4E6660085A3C0 /* GuestStars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +64,19 @@
 		C2009C132BD27F2D0085A3C0 /* StarzPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarzPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2009C172BD27F2D0085A3C0 /* StarzPlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarzPlayUITests.swift; sourceTree = "<group>"; };
 		C2009C192BD27F2D0085A3C0 /* StarzPlayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarzPlayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C2009C322BD289BA0085A3C0 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
+		C2009C382BD4E64E0085A3C0 /* ShowBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBase.swift; sourceTree = "<group>"; };
+		C2009C392BD4E64E0085A3C0 /* Seasons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seasons.swift; sourceTree = "<group>"; };
+		C2009C3A2BD4E64E0085A3C0 /* NextEpisodeToAir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextEpisodeToAir.swift; sourceTree = "<group>"; };
+		C2009C3B2BD4E64E0085A3C0 /* ProductionCompanies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionCompanies.swift; sourceTree = "<group>"; };
+		C2009C3C2BD4E64E0085A3C0 /* Networks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
+		C2009C3D2BD4E64E0085A3C0 /* CreatedBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatedBy.swift; sourceTree = "<group>"; };
+		C2009C3E2BD4E64E0085A3C0 /* LastEpisodeToAir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastEpisodeToAir.swift; sourceTree = "<group>"; };
+		C2009C3F2BD4E64E0085A3C0 /* Genres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		C2009C482BD4E6660085A3C0 /* Crew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
+		C2009C492BD4E6660085A3C0 /* SeasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
+		C2009C4A2BD4E6660085A3C0 /* Episodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
+		C2009C4B2BD4E6660085A3C0 /* GuestStars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestStars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +127,16 @@
 		C2009BF22BD27F230085A3C0 /* StarzPlay */ = {
 			isa = PBXGroup;
 			children = (
+				C2009C282BD284620085A3C0 /* BuildConfiguration */,
+				C2009C312BD2862E0085A3C0 /* Network */,
+				C2009C272BD284530085A3C0 /* Stubs */,
+				C2009C262BD2844C0085A3C0 /* Models */,
+				C2009C292BD284760085A3C0 /* Resources */,
+				C2009C2B2BD284880085A3C0 /* Views */,
+				C2009C2A2BD2847E0085A3C0 /* Scenes */,
 				C2009BF32BD27F230085A3C0 /* AppDelegate.swift */,
 				C2009BF52BD27F230085A3C0 /* SceneDelegate.swift */,
 				C2009BF72BD27F230085A3C0 /* ViewController.swift */,
-				C2009BF92BD27F230085A3C0 /* Main.storyboard */,
-				C2009BFF2BD27F2C0085A3C0 /* Assets.xcassets */,
-				C2009C012BD27F2C0085A3C0 /* LaunchScreen.storyboard */,
 				C2009C042BD27F2C0085A3C0 /* Info.plist */,
 				C2009BFC2BD27F230085A3C0 /* StarzPlay.xcdatamodeld */,
 			);
@@ -128,6 +158,127 @@
 				C2009C192BD27F2D0085A3C0 /* StarzPlayUITestsLaunchTests.swift */,
 			);
 			path = StarzPlayUITests;
+			sourceTree = "<group>";
+		};
+		C2009C262BD2844C0085A3C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C352BD4E5530085A3C0 /* SeasonDetail */,
+				C2009C342BD4E5360085A3C0 /* Show */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2009C272BD284530085A3C0 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		C2009C282BD284620085A3C0 /* BuildConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C322BD289BA0085A3C0 /* BuildConfiguration.swift */,
+			);
+			path = BuildConfiguration;
+			sourceTree = "<group>";
+		};
+		C2009C292BD284760085A3C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2009BFF2BD27F2C0085A3C0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C2009C2A2BD2847E0085A3C0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C2009C2B2BD284880085A3C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C2E2BD2850C0085A3C0 /* Cells */,
+				C2009C2D2BD284C00085A3C0 /* XIBs */,
+				C2009C2C2BD284A30085A3C0 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2009C2C2BD284A30085A3C0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C012BD27F2C0085A3C0 /* LaunchScreen.storyboard */,
+				C2009BF92BD27F230085A3C0 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C2009C2D2BD284C00085A3C0 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		C2009C2E2BD2850C0085A3C0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C2F2BD2851B0085A3C0 /* TableViewCells */,
+				C2009C302BD2852A0085A3C0 /* CollectionViewCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C2009C2F2BD2851B0085A3C0 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		C2009C302BD2852A0085A3C0 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		C2009C312BD2862E0085A3C0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C2009C342BD4E5360085A3C0 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C3D2BD4E64E0085A3C0 /* CreatedBy.swift */,
+				C2009C3F2BD4E64E0085A3C0 /* Genres.swift */,
+				C2009C3E2BD4E64E0085A3C0 /* LastEpisodeToAir.swift */,
+				C2009C3C2BD4E64E0085A3C0 /* Networks.swift */,
+				C2009C3A2BD4E64E0085A3C0 /* NextEpisodeToAir.swift */,
+				C2009C3B2BD4E64E0085A3C0 /* ProductionCompanies.swift */,
+				C2009C392BD4E64E0085A3C0 /* Seasons.swift */,
+				C2009C382BD4E64E0085A3C0 /* ShowBase.swift */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
+		C2009C352BD4E5530085A3C0 /* SeasonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C2009C482BD4E6660085A3C0 /* Crew.swift */,
+				C2009C4A2BD4E6660085A3C0 /* Episodes.swift */,
+				C2009C4B2BD4E6660085A3C0 /* GuestStars.swift */,
+				C2009C492BD4E6660085A3C0 /* SeasonModel.swift */,
+			);
+			path = SeasonDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +412,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2009C422BD4E64E0085A3C0 /* NextEpisodeToAir.swift in Sources */,
+				C2009C462BD4E64E0085A3C0 /* LastEpisodeToAir.swift in Sources */,
+				C2009C332BD289BA0085A3C0 /* BuildConfiguration.swift in Sources */,
+				C2009C442BD4E64E0085A3C0 /* Networks.swift in Sources */,
 				C2009BFE2BD27F230085A3C0 /* StarzPlay.xcdatamodeld in Sources */,
+				C2009C4E2BD4E6660085A3C0 /* Episodes.swift in Sources */,
+				C2009C4D2BD4E6660085A3C0 /* SeasonModel.swift in Sources */,
+				C2009C472BD4E64E0085A3C0 /* Genres.swift in Sources */,
 				C2009BF82BD27F230085A3C0 /* ViewController.swift in Sources */,
+				C2009C452BD4E64E0085A3C0 /* CreatedBy.swift in Sources */,
+				C2009C432BD4E64E0085A3C0 /* ProductionCompanies.swift in Sources */,
 				C2009BF42BD27F230085A3C0 /* AppDelegate.swift in Sources */,
+				C2009C4C2BD4E6660085A3C0 /* Crew.swift in Sources */,
 				C2009BF62BD27F230085A3C0 /* SceneDelegate.swift in Sources */,
+				C2009C402BD4E64E0085A3C0 /* ShowBase.swift in Sources */,
+				C2009C412BD4E64E0085A3C0 /* Seasons.swift in Sources */,
+				C2009C4F2BD4E6660085A3C0 /* GuestStars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
