@@ -1,5 +1,5 @@
 //
-//  ShowInfoRouter.swift
+//  GenericAlertRouter.swift
 //  StarzPlay
 //
 //  Created by Aqeel Ahmed on 21/04/2024.
@@ -7,20 +7,20 @@
 
 import UIKit
 
-@objc protocol ShowInfoRoutingLogic
+@objc protocol GenericAlertRoutingLogic
 {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol ShowInfoDataPassing
+protocol GenericAlertDataPassing
 {
-    var dataStore: ShowInfoDataStore? { get }
+    var dataStore: GenericAlertDataStore? { get }
 }
 
-class ShowInfoRouter: NSObject, ShowInfoRoutingLogic, ShowInfoDataPassing
+class GenericAlertRouter: NSObject, GenericAlertRoutingLogic, GenericAlertDataPassing
 {
-    weak var viewController: ShowInfoViewController?
-    var dataStore: ShowInfoDataStore?
+    weak var viewController: GenericAlertViewController?
+    var dataStore: GenericAlertDataStore?
     
     // MARK: Routing
     
@@ -41,14 +41,14 @@ class ShowInfoRouter: NSObject, ShowInfoRoutingLogic, ShowInfoDataPassing
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: ShowInfoViewController, destination: SomewhereViewController)
+    //func navigateToSomewhere(source: GenericAlertViewController, destination: SomewhereViewController)
     //{
     //  source.show(destination, sender: nil)
     //}
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: ShowInfoDataStore, destination: inout SomewhereDataStore)
+    //func passDataToSomewhere(source: GenericAlertDataStore, destination: inout SomewhereDataStore)
     //{
     //  destination.name = source.name
     //}

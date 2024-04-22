@@ -33,6 +33,18 @@ class BuildConfiguration {
         }
     }
     
+    public var imageBaseURL: String {
+        
+        switch environment {
+        case .debug:    //Develop
+            return "https://image.tmdb.org/t/p/original"
+        case .staging:  //For UAT
+            return "https://image.tmdb.org/t/p/original"
+        case .release:  //Production
+            return "https://image.tmdb.org/t/p/original"
+        }
+    }
+    
     public var tmdbAPIKey: String {
         
         switch environment {
@@ -48,6 +60,7 @@ class BuildConfiguration {
     // If there is need to attach port manually with baseURL
     public var port: String {
         
+        // e.g. :9000, :7000 etc.
         switch environment {
         case .debug:
             return ""
@@ -60,6 +73,7 @@ class BuildConfiguration {
     
     
     init() {
+        
         let currentConfiguration = Bundle.main.object(forInfoDictionaryKey: "Configuration") as? String
         environment = Environment(rawValue: currentConfiguration ?? "")!
     }

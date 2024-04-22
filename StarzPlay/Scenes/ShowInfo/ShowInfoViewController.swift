@@ -3,14 +3,15 @@
 //  StarzPlay
 //
 //  Created by Aqeel Ahmed on 21/04/2024.
-//  Copyright (c) 2024 Aqeel Ahmed. All rights reserved.
 //
 
 import UIKit
 
 protocol ShowInfoDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: ShowInfo.Something.ViewModel)
+    func displayShowInfo(viewModel: ShowInfo.Show.ViewModel)
+    func displaySeasonInfo(viewModel: ShowInfo.Season.ViewModel)
+    func displayEpisodeInfo(viewModel: ShowInfo.Episode.ViewModel)
 }
 
 class ShowInfoViewController: UIViewController
@@ -19,8 +20,9 @@ class ShowInfoViewController: UIViewController
     @IBOutlet weak var seasonCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    var tvShowBaseInfo: ShowBase?
-    var selecteSeasonBase: SeasonModel?
+    var fetchShowWithId: Int = Constants.BillionsShowId
+    var showInfo: ShowBase?
+    var selectedSeasonInfo: SeasonModel?
     
     var interactor: ShowInfoBusinessLogic?
     var router: (NSObjectProtocol & ShowInfoRoutingLogic & ShowInfoDataPassing)?
@@ -72,9 +74,25 @@ class ShowInfoViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.getShowInfo(showId: fetchShowWithId)
     }
     
+    // MARK: Helper Functions
+    func updateSeasonListUIWithFetchedInfo(showInfo: ShowBase) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let self = self else { return }
+            self.seasonCollectionView.reloadData()
+            
+            guard let seasons = showInfo.seasons, let firstSeason = seasons.first, let seasonNumber = firstSeason.seasonNumber else { return }
+            self.getSeasonInfo(showId: self.fetchShowWithId, seasonNumber: seasonNumber)
+        }
+    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
@@ -96,23 +114,25 @@ extension ShowInfoViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return tvShowBaseInfo?.numberOfSeasons ?? 0
+        return showInfo?.numberOfSeasons ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = seasonCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SeasonCell.self), for: indexPath) as! SeasonCell
         
-        cell.configureSeasonCell(seasons: tvShowBaseInfo?.seasons, row: indexPath.row)
+        cell.configureSeasonCell(seasons: showInfo?.seasons, row: indexPath.row)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if self.tvShowBaseInfo?.seasons?.count ?? 0 > 0 {
-            if let season = self.tvShowBaseInfo?.seasons?[indexPath.row] {
-//                self.fetchSeasonInfo(seasonNumber: season.seasonNumber ?? 0)
+        if indexPath.row < self.showInfo?.seasons?.count ?? 0 {
+            
+            if let selectedSeason = self.showInfo?.seasons?[indexPath.row], let seasonNumber = selectedSeason.seasonNumber {
+                
+                self.getSeasonInfo(showId: fetchShowWithId, seasonNumber: seasonNumber)
             }
          }
     }
@@ -129,14 +149,14 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return selecteSeasonBase?.episodes?.count ?? 0
+        return selectedSeasonInfo?.episodes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EpisodeCell.self), for: indexPath) as! EpisodeCell
         
-        let episode = selecteSeasonBase?.episodes?[indexPath.row]
+        let episode = selectedSeasonInfo?.episodes?[indexPath.row]
         cell.configureEpisodeCell(episode: episode)
         
         return cell
@@ -150,18 +170,75 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: API Calls
 extension ShowInfoViewController: ShowInfoDisplayLogic {
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething()
+    // MARK: Show Info
+
+    // MARK: Get
+    func getShowInfo(showId: Int)
     {
-        let request = ShowInfo.Something.Request()
-        interactor?.doSomething(request: request)
+        let request = ShowInfo.Show.Request(showId: "\(showId)")
+        interactor?.getShowInfo(request: request)
     }
     
-    func displaySomething(viewModel: ShowInfo.Something.ViewModel)
+    // MARK: Display
+    func displayShowInfo(viewModel: ShowInfo.Show.ViewModel)
     {
-        //nameTextField.text = viewModel.name
+        if viewModel.success == true, let showInfo = viewModel.showInfo {
+            
+            self.showInfo = showInfo
+            self.updateSeasonListUIWithFetchedInfo(showInfo: showInfo)
+            
+        } else {
+            
+            self.showGenericAlert(title: Constants.Oops, description: Constants.UnableToFetchShowInfo, alertType: .Failure)
+        }
+    }
+    
+    // MARK: Seasson Info
+
+    // MARK: Get
+    func getSeasonInfo(showId: Int, seasonNumber: Int)
+    {
+        let request = ShowInfo.Season.Request(showId: "\(showId)", seasonNumber: "\(seasonNumber)")
+        interactor?.getSeasonInfo(request: request)
+    }
+    
+    // MARK: Display
+    func displaySeasonInfo(viewModel: ShowInfo.Season.ViewModel)
+    {
+        if viewModel.success == true, let seasonInfo = viewModel.seasonInfo {
+            
+            self.selectedSeasonInfo = seasonInfo
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.tableView.reloadData()
+            }
+            
+        } else {
+            
+            self.showGenericAlert(title: Constants.Oops, description: Constants.UnableToFetchSeasonInfo, alertType: .Failure)
+        }
+    }
+    
+    // MARK: Episode Info
+
+    // MARK: Get
+    func getEpisodeInfo(showId: Int, seasonNumber: Int, episodeNumber: Int)
+    {
+        let request = ShowInfo.Episode.Request(showId: "\(showId)", seasonNumber: "\(seasonNumber)", episodeNumber: "\(episodeNumber)")
+        interactor?.getEpisodeInfo(request: request)
+    }
+    
+    // MARK: Display
+    func displayEpisodeInfo(viewModel: ShowInfo.Episode.ViewModel)
+    {
+        if viewModel.success == true, let episodeInfo = viewModel.episodeInfo {
+            
+            println(object: episodeInfo)
+            
+        } else {
+            
+            self.showGenericAlert(title: Constants.Oops, description: Constants.UnableToFetchEpisodeInfo, alertType: .Failure)
+        }
     }
 }

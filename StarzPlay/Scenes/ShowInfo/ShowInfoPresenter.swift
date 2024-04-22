@@ -3,25 +3,39 @@
 //  StarzPlay
 //
 //  Created by Aqeel Ahmed on 21/04/2024.
-//  Copyright (c) 2024 Aqeel Ahmed. All rights reserved.
 //
 
 import UIKit
 
 protocol ShowInfoPresentationLogic
 {
-    func presentSomething(response: ShowInfo.Something.Response)
+    func presentShowInfo(response: ShowInfo.Show.Response)
+    func presentSeasonInfo(response: ShowInfo.Season.Response)
+    func presentEpisodeInfo(response: ShowInfo.Episode.Response)
 }
 
 class ShowInfoPresenter: ShowInfoPresentationLogic
 {
     weak var viewController: ShowInfoDisplayLogic?
     
-    // MARK: Do something
-    
-    func presentSomething(response: ShowInfo.Something.Response)
+    // MARK: Present Show Info
+    func presentShowInfo(response: ShowInfo.Show.Response)
     {
-        let viewModel = ShowInfo.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        let viewModel = ShowInfo.Show.ViewModel(success: response.success, error: response.error, showInfo: response.showInfo)
+        viewController?.displayShowInfo(viewModel: viewModel)
+    }
+    
+    // MARK: Present Season Info
+    func presentSeasonInfo(response: ShowInfo.Season.Response)
+    {
+        let viewModel = ShowInfo.Season.ViewModel(success: response.success, error: response.error, seasonInfo: response.seasonInfo)
+        viewController?.displaySeasonInfo(viewModel: viewModel)
+    }
+    
+    // MARK: Present Episode Info
+    func presentEpisodeInfo(response: ShowInfo.Episode.Response)
+    {
+        let viewModel = ShowInfo.Episode.ViewModel(success: response.success, error: response.error, episodeInfo: response.episodeInfo)
+        viewController?.displayEpisodeInfo(viewModel: viewModel)
     }
 }

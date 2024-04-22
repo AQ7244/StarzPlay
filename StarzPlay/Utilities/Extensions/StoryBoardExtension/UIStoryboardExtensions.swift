@@ -15,6 +15,7 @@ extension UIStoryboard {
     enum Storyboard: String {
         case Main
         case LaunchScreen
+        case Common
         
         var filename: String {
             return rawValue
