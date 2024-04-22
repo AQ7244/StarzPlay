@@ -28,6 +28,7 @@ class ShowInfoViewController: UIViewController
     var fetchShowWithId: Int = Constants.BillionsShowId
     var showInfo: ShowBase?
     var selectedSeasonInfo: SeasonModel?
+    var episodeInfo: EpisodeModel?
     var tappedSeasonIndex = 0
     var selectedSeasonIndex = 0
     
@@ -296,6 +297,7 @@ extension ShowInfoViewController: ShowInfoDisplayLogic {
         if viewModel.success == true, let episodeInfo = viewModel.episodeInfo {
             
             println(object: episodeInfo)
+            self.episodeInfo = episodeInfo
             
         } else {
             
