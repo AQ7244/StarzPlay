@@ -28,6 +28,8 @@ class ShowInfoViewController: UIViewController
     var fetchShowWithId: Int = Constants.BillionsShowId
     var showInfo: ShowBase?
     var selectedSeasonInfo: SeasonModel?
+    var tappedSeasonIndex = 0
+    var selectedSeasonIndex = 0
     
     var interactor: ShowInfoBusinessLogic?
     var router: (NSObjectProtocol & ShowInfoRoutingLogic & ShowInfoDataPassing)?
@@ -144,7 +146,7 @@ extension ShowInfoViewController: UICollectionViewDelegate, UICollectionViewData
         
         let cell = seasonCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SeasonCell.self), for: indexPath) as! SeasonCell
         
-        cell.configureSeasonCell(seasons: showInfo?.seasons, row: indexPath.row)
+        cell.configureSeasonCell(seasons: showInfo?.seasons, row: indexPath.row, isSelected: indexPath.row == self.selectedSeasonIndex)
         
         return cell
     }
@@ -155,6 +157,7 @@ extension ShowInfoViewController: UICollectionViewDelegate, UICollectionViewData
             
             if let selectedSeason = self.showInfo?.seasons?[indexPath.row], let seasonNumber = selectedSeason.seasonNumber {
                 
+                self.tappedSeasonIndex = indexPath.row
                 self.getSeasonInfo(showId: fetchShowWithId, seasonNumber: seasonNumber)
             }
          }
@@ -263,14 +266,17 @@ extension ShowInfoViewController: ShowInfoDisplayLogic {
         if viewModel.success == true, let seasonInfo = viewModel.seasonInfo {
             
             self.selectedSeasonInfo = seasonInfo
+            self.selectedSeasonIndex = self.tappedSeasonIndex
             
             DispatchQueue.main.async { [weak self] in
                 
                 self?.tableView.reloadData()
+                self?.seasonCollectionView.reloadData()
             }
             
         } else {
             
+            self.tappedSeasonIndex = self.selectedSeasonIndex
             self.showGenericAlert(title: Constants.Oops, description: Constants.UnableToFetchSeasonInfo, alertType: .Failure)
         }
     }

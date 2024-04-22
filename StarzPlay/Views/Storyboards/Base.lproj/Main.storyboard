@@ -256,7 +256,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEASON 1 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe8-pz-GsA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="SEASON 1 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe8-pz-GsA">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="40"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -274,21 +274,33 @@
                                                         <constraint firstAttribute="width" constant="1" id="8ZW-1J-AWX"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-Bg-HPn">
+                                                    <rect key="frame" x="0.0" y="36" width="128" height="4"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="4" id="Wex-gh-WSL"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="W4e-Bg-HPn" secondAttribute="trailing" id="0sL-Rn-hRW"/>
                                                 <constraint firstItem="HBp-oj-Dxf" firstAttribute="top" secondItem="ycs-Qu-FHD" secondAttribute="top" constant="5" id="Deu-VY-FRM"/>
                                                 <constraint firstAttribute="trailing" secondItem="HBp-oj-Dxf" secondAttribute="trailing" id="JXT-nC-bN5"/>
                                                 <constraint firstItem="Oe8-pz-GsA" firstAttribute="top" secondItem="ycs-Qu-FHD" secondAttribute="top" id="LSC-BE-ZZT"/>
+                                                <constraint firstAttribute="bottom" secondItem="W4e-Bg-HPn" secondAttribute="bottom" id="U3I-G1-aGh"/>
                                                 <constraint firstItem="Oe8-pz-GsA" firstAttribute="leading" secondItem="ycs-Qu-FHD" secondAttribute="leading" id="ktH-DN-XtK"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oe8-pz-GsA" secondAttribute="trailing" id="mvI-kS-b95"/>
                                                 <constraint firstAttribute="bottom" secondItem="HBp-oj-Dxf" secondAttribute="bottom" constant="15" id="pYw-HH-aBe"/>
+                                                <constraint firstItem="W4e-Bg-HPn" firstAttribute="leading" secondItem="ycs-Qu-FHD" secondAttribute="leading" id="s0O-Jc-UFW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="128" height="40"/>
                                         <connections>
                                             <outlet property="lblSeasonNumber" destination="Oe8-pz-GsA" id="176-mt-Lbx"/>
+                                            <outlet property="viewSelection" destination="W4e-Bg-HPn" id="u8V-5X-aIE"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
