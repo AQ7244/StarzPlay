@@ -9,17 +9,28 @@ import UIKit
 
 class EpisodeCell: UITableViewCell {
 
-    @IBOutlet weak var seasonNameLabel: UILabel!
+    @IBOutlet weak var lblSeasonName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.lblSeasonName.setupTextAppearance(textColor: UIConfigurations.SPLightTextColor, tintColor: UIConfigurations.SPLightTextColor, font: UIConfigurations.getUIFontRegular(fontSize: UIConfigurations.kFontSizeMedium))
+        self.lblSeasonName.textAlignment = .left
+        self.lblSeasonName.minimumScaleFactor = 0.7
     }
 
     func configureEpisodeCell(episode: Episodes?) {
         
         guard let currentEpisode = episode else { return }
-        seasonNameLabel.text = currentEpisode.name
+        
+        let episodeName = currentEpisode.name ?? ""
+        lblSeasonName.text = episodeName
+        
+        if let episodeNumber = currentEpisode.episodeNumber {
+            
+            lblSeasonName.text = "E \(episodeNumber) - \(episodeName)"
+        }
         
     }
 }

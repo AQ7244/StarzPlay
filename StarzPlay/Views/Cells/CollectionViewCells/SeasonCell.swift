@@ -9,7 +9,7 @@ import UIKit
 
 class SeasonCell: UICollectionViewCell {
     
-    @IBOutlet weak var seasonNumberLabel: UILabel!
+    @IBOutlet weak var lblSeasonNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +19,7 @@ class SeasonCell: UICollectionViewCell {
         
         guard let seasons = seasons else { return}
         let currentSeason = seasons[row]
-        seasonNumberLabel.text = "SEASON \(currentSeason.seasonNumber ?? 0)"
+        lblSeasonNumber.text = "SEASON \(currentSeason.seasonNumber ?? 0)"
     }
     
 }

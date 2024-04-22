@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cEp-ag-rSI">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -283,7 +284,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="128" height="40"/>
                                         <connections>
-                                            <outlet property="seasonNumberLabel" destination="Oe8-pz-GsA" id="176-mt-Lbx"/>
+                                            <outlet property="lblSeasonNumber" destination="Oe8-pz-GsA" id="176-mt-Lbx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -295,66 +296,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-zY-4bA">
                                 <rect key="frame" x="0.0" y="525" width="393" height="327"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" rowHeight="86" id="wKH-3R-TtU" customClass="EpisodeCell" customModule="StarzPlay" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="86"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wKH-3R-TtU" id="8Pa-aX-2dg">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="86"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUs-Wb-ccA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="81"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="suJ-t0-Lhm">
-                                                            <rect key="frame" x="10" y="14.666666666666664" width="30" height="51.999999999999993"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="Wuu-5b-AM8"/>
-                                                                <constraint firstAttribute="height" constant="50" id="epY-Xr-rTa"/>
-                                                            </constraints>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_poster" translatesAutoresizingMaskIntoConstraints="NO" id="p8m-YZ-3Yh">
-                                                            <rect key="frame" x="50" y="10" width="110" height="61"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="110" id="RMO-VO-WeX"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season1 - Trailer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqX-kx-RuU">
-                                                            <rect key="frame" x="165" y="32" width="213" height="17"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.1566614509" green="0.15280199050000001" blue="0.1743926704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="p8m-YZ-3Yh" secondAttribute="bottom" constant="10" id="9hh-rD-fm6"/>
-                                                        <constraint firstItem="p8m-YZ-3Yh" firstAttribute="leading" secondItem="suJ-t0-Lhm" secondAttribute="trailing" constant="10" id="A8a-Ok-PdW"/>
-                                                        <constraint firstItem="hqX-kx-RuU" firstAttribute="leading" secondItem="p8m-YZ-3Yh" secondAttribute="trailing" constant="5" id="WY0-Yw-N5u"/>
-                                                        <constraint firstItem="suJ-t0-Lhm" firstAttribute="leading" secondItem="fUs-Wb-ccA" secondAttribute="leading" constant="10" id="Y1J-Sg-LEp"/>
-                                                        <constraint firstAttribute="trailing" secondItem="hqX-kx-RuU" secondAttribute="trailing" constant="15" id="ePh-nv-2Fw"/>
-                                                        <constraint firstItem="p8m-YZ-3Yh" firstAttribute="top" secondItem="fUs-Wb-ccA" secondAttribute="top" constant="10" id="hNZ-fa-qvP"/>
-                                                        <constraint firstItem="hqX-kx-RuU" firstAttribute="centerY" secondItem="p8m-YZ-3Yh" secondAttribute="centerY" id="koW-8P-91r"/>
-                                                        <constraint firstItem="suJ-t0-Lhm" firstAttribute="centerY" secondItem="fUs-Wb-ccA" secondAttribute="centerY" id="xeD-Z3-a5B"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.10188177969999999" green="0.10190273079999999" blue="0.1105723456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="fUs-Wb-ccA" firstAttribute="top" secondItem="8Pa-aX-2dg" secondAttribute="top" id="T0p-to-jMj"/>
-                                                <constraint firstAttribute="bottom" secondItem="fUs-Wb-ccA" secondAttribute="bottom" constant="5" id="aAV-Es-vTe"/>
-                                                <constraint firstItem="fUs-Wb-ccA" firstAttribute="leading" secondItem="8Pa-aX-2dg" secondAttribute="leading" id="cY2-Rn-sv0"/>
-                                                <constraint firstAttribute="trailing" secondItem="fUs-Wb-ccA" secondAttribute="trailing" id="x1x-Vv-fgU"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="seasonNameLabel" destination="hqX-kx-RuU" id="djz-4R-yKy"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="cEp-ag-rSI" id="Mdg-N7-Wwp"/>
                                     <outlet property="delegate" destination="cEp-ag-rSI" id="uxh-Mp-py3"/>
@@ -389,7 +331,6 @@
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
-        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="hand.thumbsdown" catalog="system" width="123" height="128"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="home_poster" width="1000" height="562.66668701171875"/>

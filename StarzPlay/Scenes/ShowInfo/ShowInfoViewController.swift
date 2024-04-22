@@ -75,10 +75,16 @@ class ShowInfoViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.setupView()
         
         self.getShowInfo(showId: fetchShowWithId)
+    }
+    
+    func setupView() {
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: String(describing: EpisodeCell.self), bundle: nil), forCellReuseIdentifier: String(describing: EpisodeCell.self))
     }
     
     // MARK: Helper Functions
