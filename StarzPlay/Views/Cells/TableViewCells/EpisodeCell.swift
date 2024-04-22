@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class EpisodeCell: UITableViewCell {
 
+    @IBOutlet weak var imageViewEpisodePoster: UIImageView!
     @IBOutlet weak var lblSeasonName: UILabel!
     
     override func awakeFromNib() {
@@ -32,5 +34,9 @@ class EpisodeCell: UITableViewCell {
             lblSeasonName.text = "E \(episodeNumber) - \(episodeName)"
         }
         
+        if let stillPath = currentEpisode.stillPath, let episodeimageUrl = URL(string: "\(BuildConfiguration.shared.imageBaseURL)\(stillPath)") {
+            
+            self.imageViewEpisodePoster.sd_setImage(with: episodeimageUrl, placeholderImage: UIImage(named: "home_poster"), options: .progressiveLoad)
+        }
     }
 }

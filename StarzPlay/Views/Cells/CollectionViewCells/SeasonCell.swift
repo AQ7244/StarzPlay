@@ -13,6 +13,10 @@ class SeasonCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.lblSeasonNumber.setupTextAppearance(textColor: UIConfigurations.SPLightTextColor, tintColor: UIConfigurations.SPLightTextColor, font: UIConfigurations.getUIFontRegular(fontSize: UIConfigurations.kFontSizeLarge))
+        self.lblSeasonNumber.textAlignment = .center
+        self.lblSeasonNumber.minimumScaleFactor = 0.7
     }
     
     func configureSeasonCell(seasons: [Seasons]?, row: Int) {

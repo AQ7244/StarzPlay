@@ -7,6 +7,7 @@ target 'StarzPlay' do
 
   # Pods for StarzPlay
   pod 'Moya'
+  pod 'SDWebImage'
 
   target 'StarzPlayTests' do
     inherit! :search_paths

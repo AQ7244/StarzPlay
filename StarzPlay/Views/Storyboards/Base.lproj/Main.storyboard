@@ -57,10 +57,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-Rg-5rQ">
                                                 <rect key="frame" x="15" y="45.000000000000028" width="363" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpP-93-HTc">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpP-93-HTc">
                                                         <rect key="frame" x="0.0" y="0.0" width="177.66666666666666" height="40"/>
                                                         <color key="backgroundColor" red="0.99968594310000003" green="0.65462440249999998" blue="0.3788320422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="PLay">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                        <state key="normal" title="PLay" image="play.fill" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -69,10 +71,12 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-DA-37E">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-DA-37E">
                                                         <rect key="frame" x="185.66666666666663" y="0.0" width="177.33333333333337" height="40"/>
                                                         <color key="backgroundColor" red="0.19587543609999999" green="0.1920209229" blue="0.21362200379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Trailer">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                        <state key="normal" title="Trailer" image="play.rectangle" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -86,7 +90,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="KTt-gf-55P"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-iV-Biw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTO-iV-Biw">
                                                 <rect key="frame" x="15" y="90.000000000000028" width="363" height="89.333333333333343"/>
                                                 <string key="text">A complex, intricate narrative that takes a forensic loo at New york Cit's world of high finance. As two highly ambitious figures collide</string>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
@@ -320,6 +324,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageViewShowBackdrop" destination="5mZ-94-W5m" id="fga-yc-3zk"/>
+                        <outlet property="lblShowDetails" destination="ZTO-iV-Biw" id="SXn-4A-b0g"/>
+                        <outlet property="lblShowSummary" destination="GhL-Ky-2eS" id="ukx-5x-mh9"/>
+                        <outlet property="lblShowTitle" destination="wNh-dl-DoA" id="hKG-Sv-FZ0"/>
                         <outlet property="seasonCollectionView" destination="MCe-g2-snO" id="YDa-uF-g8i"/>
                         <outlet property="tableView" destination="xhN-zY-4bA" id="pzH-YG-oEo"/>
                     </connections>
@@ -336,6 +344,8 @@
         <image name="home_poster" width="1000" height="562.66668701171875"/>
         <image name="ic_cast_screen" width="21.333333969116211" height="21.333333969116211"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
+        <image name="play.rectangle" catalog="system" width="128" height="93"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

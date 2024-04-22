@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ShowInfoDisplayLogic: AnyObject
 {
@@ -17,6 +18,10 @@ protocol ShowInfoDisplayLogic: AnyObject
 class ShowInfoViewController: UIViewController
 {
     
+    @IBOutlet weak var imageViewShowBackdrop: UIImageView!
+    @IBOutlet weak var lblShowTitle: UILabel!
+    @IBOutlet weak var lblShowSummary: UILabel!
+    @IBOutlet weak var lblShowDetails: UILabel!
     @IBOutlet weak var seasonCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -81,6 +86,18 @@ class ShowInfoViewController: UIViewController
     }
     
     func setupView() {
+        
+        self.lblShowTitle.setupTextAppearance(textColor: UIConfigurations.SPLightTextColor, tintColor: UIConfigurations.SPLightTextColor, font: UIConfigurations.getUIFontMedium(fontSize: UIConfigurations.kFontSizeLarge))
+        self.lblShowTitle.textAlignment = .left
+        self.lblShowTitle.minimumScaleFactor = 0.7
+        
+        self.lblShowSummary.setupTextAppearance(textColor: UIConfigurations.FadeTextColor, tintColor: UIConfigurations.FadeTextColor, font: UIConfigurations.getUIFontMedium(fontSize: UIConfigurations.kFontSizeLarge))
+        self.lblShowSummary.textAlignment = .left
+        self.lblShowSummary.minimumScaleFactor = 0.7
+        
+        self.lblShowDetails.setupTextAppearance(textColor: UIConfigurations.SPLightTextColor, tintColor: UIConfigurations.SPLightTextColor, font: UIConfigurations.getUIFontRegular(fontSize: UIConfigurations.kFontSizeSmall))
+        self.lblShowDetails.textAlignment = .left
+        self.lblShowDetails.minimumScaleFactor = 0.7
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -191,7 +208,39 @@ extension ShowInfoViewController: ShowInfoDisplayLogic {
         if viewModel.success == true, let showInfo = viewModel.showInfo {
             
             self.showInfo = showInfo
+            
+            if let seasonName = showInfo.originalName {
+                
+                self.lblShowTitle.text = seasonName
+            }
+            
+            var showSummary = ""
+            if let firstAirDate = showInfo.firstAirDate {
+                
+                // We can use formatters too for this purpose if we need to deal with dates
+                if let firstAirYear = firstAirDate.components(separatedBy: "-").first {
+                    showSummary = showSummary + firstAirYear
+                }
+            }
+            
+            if let numberOfSeasons = showInfo.numberOfSeasons {
+                
+                showSummary = showSummary + " | \(numberOfSeasons) Seasons" + " | R" // Not sure what does this R mneans
+            }
+            
+            self.lblShowSummary.text = showSummary
+            
+            if let seasonDetails = showInfo.overview {
+                
+                self.lblShowDetails.text = seasonDetails
+            }
+            
             self.updateSeasonListUIWithFetchedInfo(showInfo: showInfo)
+            
+            if let backdropPath = showInfo.backdropPath, let backdropImageURL = URL(string: "\(BuildConfiguration.shared.imageBaseURL)\(backdropPath)") {
+                
+                self.imageViewShowBackdrop.sd_setImage(with: backdropImageURL, placeholderImage: UIImage(named: "home_poster"), options: .progressiveLoad)
+            }
             
         } else {
             
